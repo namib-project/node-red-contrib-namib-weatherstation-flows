@@ -1,0 +1,46 @@
+{
+  "name": "node-red-contrib-namib-weatherstation-flows",
+  "version": "1.0.0",
+  "description": "Node module containing subflows to implement a weatherstation for the Web of Things.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.informatik.uni-bremen.de/namib/gruppe-2/wetterstation-subflow.git"
+  },
+  "node-red": {
+    "nodes": {
+      "namib-weatherstation-node": "flows/weatherstation.js"
+    },
+    "dependencies": [
+      "red-contrib-wot-discovery"
+    ]
+  },
+  "keywords": [
+    "namib",
+    "iot",
+    "internet-of-things"
+  ],
+  "contributors": [
+    {
+      "name": "Jens Bücker"
+    },
+    {
+      "name": "Cornelius Schulz-Trieglaff"
+    },
+    {
+      "name": "Maurice Springholz"
+    },
+    {
+      "name": "Jan Romann",
+      "email": "jan.romann@uni-bremen.de"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "node-red-node-ui-table": "^0.3.10",
+    "red-contrib-wot-discovery": "github:JKRhb/node-red-contrib-wot-discovery"
+  }
+}

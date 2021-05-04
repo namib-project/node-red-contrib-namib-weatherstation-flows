@@ -1,0 +1,704 @@
+{
+    "id": "7458f1be.a330f",
+    "type": "subflow",
+    "name": "NAMIB-Weatherstation",
+    "info": "A weatherstation for the Web of Things. Performs discovery using CoAP and retrieves sensor data.",
+    "category": "Web of Things",
+    "in": [],
+    "out": [],
+    "env": [
+        {
+            "name": "USE_DISPLAY",
+            "type": "bool",
+            "value": "true"
+        }
+    ],
+    "color": "#FFCC66",
+    "icon": "font-awesome/fa-sun-o",
+    "flow": [
+        {
+            "id": "51b57754.c5994",
+            "type": "ui_button",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "group": "e0b6916b.ac8aa8",
+            "order": 6,
+            "width": 0,
+            "height": 0,
+            "passthru": true,
+            "label": "Refresh Things from UI",
+            "tooltip": "",
+            "color": "",
+            "bgcolor": "",
+            "icon": "",
+            "payload": "",
+            "payloadType": "str",
+            "topic": "topic",
+            "topicType": "msg",
+            "x": 490,
+            "y": 40,
+            "wires": [["bcd57443.7e7568", "db41e6c1.6436e"]]
+        },
+        {
+            "id": "a19d5d9e.737838",
+            "type": "inject",
+            "z": "7458f1be.a330f",
+            "name": "Automatic Thing refresh",
+            "props": [
+                {
+                    "p": "payload"
+                },
+                {
+                    "p": "topic",
+                    "vt": "str"
+                }
+            ],
+            "repeat": "900",
+            "crontab": "",
+            "once": true,
+            "onceDelay": "2",
+            "topic": "",
+            "payload": "",
+            "payloadType": "str",
+            "x": 210,
+            "y": 40,
+            "wires": [["51b57754.c5994"]]
+        },
+        {
+            "id": "e6ebbe15.c63b5",
+            "type": "ui_chart",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "group": "85887a12.bec588",
+            "order": 3,
+            "width": 0,
+            "height": 0,
+            "label": "Luftfeuchtigkeit",
+            "chartType": "line",
+            "legend": "true",
+            "xformat": "HH:mm:ss",
+            "interpolate": "linear",
+            "nodata": "",
+            "dot": false,
+            "ymin": "",
+            "ymax": "",
+            "removeOlder": 1,
+            "removeOlderPoints": "",
+            "removeOlderUnit": "3600",
+            "cutout": 0,
+            "useOneColor": false,
+            "useUTC": false,
+            "colors": [
+                "#1f77b4",
+                "#aec7e8",
+                "#ff7f0e",
+                "#2ca02c",
+                "#98df8a",
+                "#d62728",
+                "#ff9896",
+                "#9467bd",
+                "#c5b0d5"
+            ],
+            "outputs": 1,
+            "useDifferentColor": false,
+            "x": 1080,
+            "y": 420,
+            "wires": [[]]
+        },
+        {
+            "id": "998b012e.7cc998",
+            "type": "ui_chart",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "group": "85887a12.bec588",
+            "order": 3,
+            "width": 0,
+            "height": 0,
+            "label": "Temperatur",
+            "chartType": "line",
+            "legend": "true",
+            "xformat": "HH:mm:ss",
+            "interpolate": "linear",
+            "nodata": "",
+            "dot": false,
+            "ymin": "",
+            "ymax": "",
+            "removeOlder": 1,
+            "removeOlderPoints": "",
+            "removeOlderUnit": "3600",
+            "cutout": 0,
+            "useOneColor": false,
+            "useUTC": false,
+            "colors": [
+                "#1f77b4",
+                "#aec7e8",
+                "#ff7f0e",
+                "#2ca02c",
+                "#98df8a",
+                "#d62728",
+                "#ff9896",
+                "#9467bd",
+                "#c5b0d5"
+            ],
+            "outputs": 1,
+            "useDifferentColor": false,
+            "x": 1070,
+            "y": 360,
+            "wires": [[]]
+        },
+        {
+            "id": "9bb69194.28f7b8",
+            "type": "ui_table",
+            "z": "7458f1be.a330f",
+            "group": "e0b6916b.ac8aa8",
+            "name": "Thing Table",
+            "order": 1,
+            "width": "24",
+            "height": "18",
+            "columns": [
+                {
+                    "field": "id",
+                    "title": "ID",
+                    "width": "",
+                    "align": "left",
+                    "formatter": "plaintext",
+                    "formatterParams": {
+                        "target": "_blank"
+                    }
+                },
+                {
+                    "field": "title",
+                    "title": "Name",
+                    "width": "",
+                    "align": "left",
+                    "formatter": "plaintext",
+                    "formatterParams": {
+                        "target": "_blank"
+                    }
+                },
+                {
+                    "field": "description",
+                    "title": "Beschreibung",
+                    "width": "",
+                    "align": "left",
+                    "formatter": "plaintext",
+                    "formatterParams": {
+                        "target": "_blank"
+                    }
+                }
+            ],
+            "outputs": 0,
+            "cts": false,
+            "x": 950,
+            "y": 160,
+            "wires": []
+        },
+        {
+            "id": "75df01bc.b2f0c",
+            "type": "ui_chart",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "group": "85887a12.bec588",
+            "order": 3,
+            "width": 0,
+            "height": 0,
+            "label": "Regen",
+            "chartType": "line",
+            "legend": "true",
+            "xformat": "HH:mm:ss",
+            "interpolate": "step",
+            "nodata": "",
+            "dot": false,
+            "ymin": "0",
+            "ymax": "1",
+            "removeOlder": 1,
+            "removeOlderPoints": "",
+            "removeOlderUnit": "3600",
+            "cutout": 0,
+            "useOneColor": false,
+            "useUTC": false,
+            "colors": [
+                "#1f77b4",
+                "#aec7e8",
+                "#ff7f0e",
+                "#2ca02c",
+                "#98df8a",
+                "#d62728",
+                "#ff9896",
+                "#9467bd",
+                "#c5b0d5"
+            ],
+            "outputs": 1,
+            "useDifferentColor": false,
+            "x": 1050,
+            "y": 480,
+            "wires": [[]]
+        },
+        {
+            "id": "10ece285.b61575",
+            "type": "function",
+            "z": "7458f1be.a330f",
+            "name": "Change boolean to int",
+            "func": "if (msg.payload == false) {\n    msg.payload = 0;\n}\nelse {\n    msg.payload = 1;\n}\n\nreturn msg;",
+            "outputs": 1,
+            "noerr": 0,
+            "initialize": "",
+            "finalize": "",
+            "x": 860,
+            "y": 480,
+            "wires": [["75df01bc.b2f0c"]]
+        },
+        {
+            "id": "8072513a.3566b8",
+            "type": "exec",
+            "z": "7458f1be.a330f",
+            "command": "python3 /home/pi/test_display.py",
+            "addpay": true,
+            "append": "",
+            "useSpawn": "false",
+            "timer": "",
+            "oldrc": false,
+            "name": "",
+            "x": 1310,
+            "y": 600,
+            "wires": [[], [], []]
+        },
+        {
+            "id": "318674e9.d014d4",
+            "type": "function",
+            "z": "7458f1be.a330f",
+            "name": "Create Table for Display",
+            "func": "cats = \"\";\nvals = \"\";\n\ndata = global.get(\"display_data\");\nline_width = 18;\n\nthing = msg.thingDescription;\n\nif (thing !== undefined & msg.payload !== \"0.-2\") {\n    if (thing.properties.hasOwnProperty(\"location\")) {\n        loc = thing.properties.location;\n    }\n    else {\n        loc = \"\";\n    }\n\n    if (thing.properties.hasOwnProperty(\"water_value\")) {\n        name = \"Rain\";\n        unit = \"\";\n    }\n    else if (thing.properties.hasOwnProperty(\"temperature\")) {\n        if (loc == \"\") {\n            name = \"Temperature\";\n        }\n        else {\n            name = \"T (\" + loc + \")\";\n        }\n        unit = \"°C\";\n    }\n    else if (thing.properties.hasOwnProperty(\"humidity_value\")) {\n        if (loc == \"\") {\n            name = \"Humidity\";\n        }\n        else {\n            name = \"Hum. (\" + loc + \")\";\n        }\n        unit = \"%\";\n    }\n    \n    if (name !== undefined) {\n        data[name] = {\"val\": msg.payload, \"unit\": unit};\n        global.set(\"display_data\", data);\n    }\n}\n\nvar keys = Object.keys(data);\nfor (let s of keys) {\n    \n    val = data[s][\"val\"]\n    if (typeof val == \"boolean\")\n    {\n        if (val == true)\n        {\n            val = \"Yes\"\n        }\n        else\n        {\n            val = \"No\"\n        }\n    }\n    cats = cats + s + \":\" + \"\\n\"\n    vals = vals + val + data[s][\"unit\"] + \"\\n\"\n}\n\n// text = msg.payload.Temperature[0] + msg.payload.Temperature[1]\ntext = \"\\\"\" + cats + \"\\\" \\\"\" + vals + \"\\\"\"\nmsg = {};\nmsg.payload = text\n\nreturn msg;",
+            "outputs": 1,
+            "noerr": 0,
+            "initialize": "",
+            "finalize": "",
+            "x": 730,
+            "y": 600,
+            "wires": [["b4bf6d02.47d64", "9b755315.c3e44"]]
+        },
+        {
+            "id": "b4bf6d02.47d64",
+            "type": "rbe",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "func": "rbe",
+            "gap": "",
+            "start": "",
+            "inout": "out",
+            "property": "payload",
+            "x": 910,
+            "y": 600,
+            "wires": [["19db916a.9b6797"]]
+        },
+        {
+            "id": "19db916a.9b6797",
+            "type": "delay",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "pauseType": "rate",
+            "timeout": "5",
+            "timeoutUnits": "seconds",
+            "rate": "1",
+            "nbRateUnits": "8",
+            "rateUnits": "second",
+            "randomFirst": "1",
+            "randomLast": "5",
+            "randomUnits": "seconds",
+            "drop": false,
+            "x": 1060,
+            "y": 600,
+            "wires": [["8072513a.3566b8"]]
+        },
+        {
+            "id": "e63a20cd.9aa89",
+            "type": "inject",
+            "z": "7458f1be.a330f",
+            "name": "Refresh values (every 20s)",
+            "props": [
+                {
+                    "p": "payload"
+                },
+                {
+                    "p": "topic",
+                    "vt": "str"
+                }
+            ],
+            "repeat": "20",
+            "crontab": "",
+            "once": true,
+            "onceDelay": "10",
+            "topic": "",
+            "payload": "",
+            "payloadType": "str",
+            "x": 180,
+            "y": 600,
+            "wires": [["166495ca.31390a"]]
+        },
+        {
+            "id": "cf559190.b5ecf8",
+            "type": "wot-scripting",
+            "z": "7458f1be.a330f",
+            "name": "Read Temperature",
+            "operationType": "readProperty",
+            "affordanceName": "temperature",
+            "affordanceType": "",
+            "inputValue": "",
+            "filterMode": "affordanceName",
+            "cacheMinutes": "",
+            "outputVar": "",
+            "outputVarType": "msg",
+            "x": 590,
+            "y": 360,
+            "wires": [["998b012e.7cc998", "166495ca.31390a"]]
+        },
+        {
+            "id": "43f13cda.8d5dbc",
+            "type": "inject",
+            "z": "7458f1be.a330f",
+            "name": "Refresh values (every 20s)",
+            "props": [
+                {
+                    "p": "payload"
+                },
+                {
+                    "p": "topic",
+                    "vt": "str"
+                }
+            ],
+            "repeat": "20",
+            "crontab": "",
+            "once": true,
+            "onceDelay": "6",
+            "topic": "",
+            "payload": "thingDescriptions",
+            "payloadType": "flow",
+            "x": 240,
+            "y": 320,
+            "wires": [["bca87b1a.1ba7f"]]
+        },
+        {
+            "id": "bca87b1a.1ba7f",
+            "type": "split",
+            "z": "7458f1be.a330f",
+            "name": "Turn TD map into individual messages",
+            "splt": "\\n",
+            "spltType": "str",
+            "arraySplt": 1,
+            "arraySpltType": "len",
+            "stream": false,
+            "addname": "id",
+            "x": 270,
+            "y": 380,
+            "wires": [["8358b61f.ffb6c8"]]
+        },
+        {
+            "id": "8358b61f.ffb6c8",
+            "type": "change",
+            "z": "7458f1be.a330f",
+            "name": "Rearrange message properties",
+            "rules": [
+                {
+                    "t": "set",
+                    "p": "topic",
+                    "pt": "msg",
+                    "to": "payload.title",
+                    "tot": "msg"
+                },
+                {
+                    "t": "move",
+                    "p": "payload",
+                    "pt": "msg",
+                    "to": "thingDescription",
+                    "tot": "msg"
+                },
+                {
+                    "t": "delete",
+                    "p": "payload",
+                    "pt": "msg"
+                }
+            ],
+            "action": "",
+            "property": "",
+            "from": "",
+            "to": "",
+            "reg": false,
+            "x": 290,
+            "y": 440,
+            "wires": [["cf559190.b5ecf8", "31e51b92.285d1c", "b3fc7a48.a7b1f"]]
+        },
+        {
+            "id": "31e51b92.285d1c",
+            "type": "wot-scripting",
+            "z": "7458f1be.a330f",
+            "name": "Read Humidity",
+            "operationType": "readProperty",
+            "affordanceName": "humidity_value",
+            "affordanceType": "",
+            "inputValue": "",
+            "filterMode": "affordanceName",
+            "x": 580,
+            "y": 420,
+            "wires": [["e6ebbe15.c63b5", "166495ca.31390a"]]
+        },
+        {
+            "id": "bcd57443.7e7568",
+            "type": "wot-discovery",
+            "z": "7458f1be.a330f",
+            "name": "Discover and save TDs in Context",
+            "useCoap": true,
+            "coapUseIPv6": true,
+            "coapIPv6Address": "all",
+            "coapUseIPv4": false,
+            "coapIPv4Address": "all",
+            "useMqtt": "",
+            "mqttBrokerAddress": "",
+            "useHttp": true,
+            "httpUseIPv6": true,
+            "httpUseIPv4": false,
+            "timeoutRemoval": true,
+            "removalTime": 15,
+            "msgOrContext": "both",
+            "msgProperty": "",
+            "msgPropertyType": "msg",
+            "contextVar": "",
+            "contextVarType": "flow",
+            "deleteExistingTDs": true,
+            "x": 220,
+            "y": 160,
+            "wires": [["3ef1f651.723622"]]
+        },
+        {
+            "id": "3ef1f651.723622",
+            "type": "change",
+            "z": "7458f1be.a330f",
+            "name": "Get TDs from Context",
+            "rules": [
+                {
+                    "t": "set",
+                    "p": "payload",
+                    "pt": "msg",
+                    "to": "thingDescriptions",
+                    "tot": "flow"
+                }
+            ],
+            "action": "",
+            "property": "",
+            "from": "",
+            "to": "",
+            "reg": false,
+            "x": 480,
+            "y": 160,
+            "wires": [["77edfe1d.7794c"]]
+        },
+        {
+            "id": "db41e6c1.6436e",
+            "type": "change",
+            "z": "7458f1be.a330f",
+            "name": "Clear Table and Display Data",
+            "rules": [
+                {
+                    "t": "set",
+                    "p": "payload",
+                    "pt": "msg",
+                    "to": "[]",
+                    "tot": "json"
+                },
+                {
+                    "t": "set",
+                    "p": "display_data",
+                    "pt": "global",
+                    "to": "{}",
+                    "tot": "json"
+                }
+            ],
+            "action": "",
+            "property": "",
+            "from": "",
+            "to": "",
+            "reg": false,
+            "x": 820,
+            "y": 40,
+            "wires": [["9bb69194.28f7b8"]]
+        },
+        {
+            "id": "b3fc7a48.a7b1f",
+            "type": "wot-scripting",
+            "z": "7458f1be.a330f",
+            "name": "Read Rain Value",
+            "operationType": "readProperty",
+            "affordanceName": "water_value",
+            "affordanceType": "",
+            "inputValue": "",
+            "filterMode": "affordanceName",
+            "x": 590,
+            "y": 480,
+            "wires": [["10ece285.b61575", "166495ca.31390a"]]
+        },
+        {
+            "id": "77edfe1d.7794c",
+            "type": "function",
+            "z": "7458f1be.a330f",
+            "name": "Convert map of TDs to array",
+            "func": "msg.payload = Object.values(msg.payload);\nreturn msg;",
+            "outputs": 1,
+            "noerr": 0,
+            "initialize": "",
+            "finalize": "",
+            "x": 720,
+            "y": 160,
+            "wires": [["9bb69194.28f7b8"]]
+        },
+        {
+            "id": "a0014679.e54ae",
+            "type": "inject",
+            "z": "7458f1be.a330f",
+            "name": "Toggle all lamps",
+            "props": [
+                {
+                    "p": "payload"
+                }
+            ],
+            "repeat": "",
+            "crontab": "",
+            "once": false,
+            "onceDelay": 0.1,
+            "topic": "",
+            "payload": "thingDescriptions",
+            "payloadType": "flow",
+            "x": 140,
+            "y": 220,
+            "wires": [["d8bbfba5.9ec8d8"]]
+        },
+        {
+            "id": "1e59c56a.9588f3",
+            "type": "wot-scripting",
+            "z": "7458f1be.a330f",
+            "name": "Toggle",
+            "operationType": "invokeAction",
+            "affordanceName": "effect",
+            "affordanceType": "",
+            "inputValue": "okay",
+            "filterMode": "affordanceName",
+            "cacheMinutes": "1",
+            "outputVar": "",
+            "outputVarType": "msg",
+            "x": 930,
+            "y": 220,
+            "wires": [[]]
+        },
+        {
+            "id": "491cf76e.4f104",
+            "type": "change",
+            "z": "7458f1be.a330f",
+            "name": "Rearrange message properties",
+            "rules": [
+                {
+                    "t": "set",
+                    "p": "topic",
+                    "pt": "msg",
+                    "to": "payload.title",
+                    "tot": "msg"
+                },
+                {
+                    "t": "move",
+                    "p": "payload",
+                    "pt": "msg",
+                    "to": "thingDescription",
+                    "tot": "msg"
+                },
+                {
+                    "t": "delete",
+                    "p": "payload",
+                    "pt": "msg"
+                }
+            ],
+            "action": "",
+            "property": "",
+            "from": "",
+            "to": "",
+            "reg": false,
+            "x": 710,
+            "y": 220,
+            "wires": [["1e59c56a.9588f3"]]
+        },
+        {
+            "id": "d8bbfba5.9ec8d8",
+            "type": "split",
+            "z": "7458f1be.a330f",
+            "name": "Turn TD map into individual messages",
+            "splt": "\\n",
+            "spltType": "str",
+            "arraySplt": 1,
+            "arraySpltType": "len",
+            "stream": false,
+            "addname": "id",
+            "x": 410,
+            "y": 220,
+            "wires": [["491cf76e.4f104"]]
+        },
+        {
+            "id": "166495ca.31390a",
+            "type": "switch",
+            "z": "7458f1be.a330f",
+            "name": "Check USE_DISPLAY variable",
+            "property": "USE_DISPLAY",
+            "propertyType": "env",
+            "rules": [
+                {
+                    "t": "true"
+                }
+            ],
+            "checkall": "true",
+            "repair": false,
+            "outputs": 1,
+            "x": 470,
+            "y": 600,
+            "wires": [["318674e9.d014d4"]]
+        },
+        {
+            "id": "9b755315.c3e44",
+            "type": "debug",
+            "z": "7458f1be.a330f",
+            "name": "",
+            "active": true,
+            "tosidebar": true,
+            "console": false,
+            "tostatus": false,
+            "complete": "false",
+            "statusVal": "",
+            "statusType": "auto",
+            "x": 940,
+            "y": 720,
+            "wires": []
+        },
+        {
+            "id": "e0b6916b.ac8aa8",
+            "type": "ui_group",
+            "name": "Control-Panel",
+            "tab": "9bee792c.16b1d",
+            "order": 2,
+            "disp": true,
+            "width": "24",
+            "collapse": false
+        },
+        {
+            "id": "85887a12.bec588",
+            "type": "ui_group",
+            "name": "Monitor",
+            "tab": "9bee792c.16b1d",
+            "order": 1,
+            "disp": true,
+            "width": "6",
+            "collapse": false
+        },
+        {
+            "id": "9bee792c.16b1d",
+            "type": "ui_tab",
+            "name": "Home",
+            "icon": "dashboard",
+            "disabled": false,
+            "hidden": false
+        }
+    ]
+}
