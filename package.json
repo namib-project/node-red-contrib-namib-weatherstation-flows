@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.informatik.uni-bremen.de/namib/gruppe-2/wetterstation-subflow.git"
+    "url": "https://github.com/namib-project/node-red-contrib-namib-weatherstation-flows.git"
   },
   "node-red": {
     "nodes": {
