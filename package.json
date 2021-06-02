@@ -38,7 +38,7 @@
       "email": "jan.romann@uni-bremen.de"
     }
   ],
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-red-contrib-wot-discovery": "github:JKRhb/node-red-contrib-wot-discovery",
     "node-red-node-ui-table": "^0.3.10"
