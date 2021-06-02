@@ -40,7 +40,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "node-red-node-ui-table": "^0.3.10",
-    "node-red-contrib-wot-discovery": "github:JKRhb/node-red-contrib-wot-discovery"
+    "node-red-contrib-wot-discovery": "github:JKRhb/node-red-contrib-wot-discovery",
+    "node-red-node-ui-table": "^0.3.10"
   }
 }
