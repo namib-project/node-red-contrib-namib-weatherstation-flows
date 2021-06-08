@@ -17,11 +17,34 @@
     "icon": "font-awesome/fa-sun-o",
     "flow": [
         {
-            "id": "51b57754.c5994",
+            "id": "883956a5.198d78",
+            "type": "switch",
+            "z": "a1a66a2f.73f348",
+            "name": "Check USE_DISPLAY variable",
+            "property": "USE_DISPLAY",
+            "propertyType": "env",
+            "rules": [
+                {
+                    "t": "true"
+                }
+            ],
+            "checkall": "true",
+            "repair": false,
+            "outputs": 1,
+            "x": 890,
+            "y": 680,
+            "wires": [
+                [
+                    "94977bb4.2da588"
+                ]
+            ]
+        },
+        {
+            "id": "762598b0.bc2138",
             "type": "ui_button",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "",
-            "group": "e0b6916b.ac8aa8",
+            "group": "3aa5a87e.8fc0e",
             "order": 6,
             "width": 0,
             "height": 0,
@@ -35,14 +58,19 @@
             "payloadType": "str",
             "topic": "topic",
             "topicType": "msg",
-            "x": 490,
-            "y": 40,
-            "wires": [["bcd57443.7e7568", "db41e6c1.6436e"]]
+            "x": 470,
+            "y": 300,
+            "wires": [
+                [
+                    "116bbfff.bbea7",
+                    "c360df2.3da792"
+                ]
+            ]
         },
         {
-            "id": "a19d5d9e.737838",
+            "id": "1f7f43c3.a8663c",
             "type": "inject",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Automatic Thing refresh",
             "props": [
                 {
@@ -60,16 +88,20 @@
             "topic": "",
             "payload": "",
             "payloadType": "str",
-            "x": 210,
-            "y": 40,
-            "wires": [["51b57754.c5994"]]
+            "x": 190,
+            "y": 300,
+            "wires": [
+                [
+                    "762598b0.bc2138"
+                ]
+            ]
         },
         {
-            "id": "e6ebbe15.c63b5",
+            "id": "6a31dbb7.5e8784",
             "type": "ui_chart",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "",
-            "group": "85887a12.bec588",
+            "group": "c9175c00.15155",
             "order": 3,
             "width": 0,
             "height": 0,
@@ -101,16 +133,18 @@
             ],
             "outputs": 1,
             "useDifferentColor": false,
-            "x": 1080,
-            "y": 420,
-            "wires": [[]]
+            "x": 840,
+            "y": 520,
+            "wires": [
+                []
+            ]
         },
         {
-            "id": "998b012e.7cc998",
+            "id": "e6cf5efc.c51ee",
             "type": "ui_chart",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "",
-            "group": "85887a12.bec588",
+            "group": "c9175c00.15155",
             "order": 3,
             "width": 0,
             "height": 0,
@@ -142,30 +176,22 @@
             ],
             "outputs": 1,
             "useDifferentColor": false,
-            "x": 1070,
-            "y": 360,
-            "wires": [[]]
+            "x": 830,
+            "y": 480,
+            "wires": [
+                []
+            ]
         },
         {
-            "id": "9bb69194.28f7b8",
+            "id": "ba07006e.397fc",
             "type": "ui_table",
-            "z": "7458f1be.a330f",
-            "group": "e0b6916b.ac8aa8",
+            "z": "a1a66a2f.73f348",
+            "group": "3aa5a87e.8fc0e",
             "name": "Thing Table",
             "order": 1,
             "width": "24",
             "height": "18",
             "columns": [
-                {
-                    "field": "id",
-                    "title": "ID",
-                    "width": "",
-                    "align": "left",
-                    "formatter": "plaintext",
-                    "formatterParams": {
-                        "target": "_blank"
-                    }
-                },
                 {
                     "field": "title",
                     "title": "Name",
@@ -189,16 +215,16 @@
             ],
             "outputs": 0,
             "cts": false,
-            "x": 950,
-            "y": 160,
+            "x": 930,
+            "y": 420,
             "wires": []
         },
         {
-            "id": "75df01bc.b2f0c",
+            "id": "6ab1d26d.88938c",
             "type": "ui_chart",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "",
-            "group": "85887a12.bec588",
+            "group": "c9175c00.15155",
             "order": 3,
             "width": 0,
             "height": 0,
@@ -230,14 +256,16 @@
             ],
             "outputs": 1,
             "useDifferentColor": false,
-            "x": 1050,
-            "y": 480,
-            "wires": [[]]
+            "x": 1070,
+            "y": 560,
+            "wires": [
+                []
+            ]
         },
         {
-            "id": "10ece285.b61575",
+            "id": "231bb1e8.36fb8e",
             "type": "function",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Change boolean to int",
             "func": "if (msg.payload == false) {\n    msg.payload = 0;\n}\nelse {\n    msg.payload = 1;\n}\n\nreturn msg;",
             "outputs": 1,
@@ -245,56 +273,73 @@
             "initialize": "",
             "finalize": "",
             "x": 860,
-            "y": 480,
-            "wires": [["75df01bc.b2f0c"]]
+            "y": 560,
+            "wires": [
+                [
+                    "6ab1d26d.88938c"
+                ]
+            ]
         },
         {
-            "id": "8072513a.3566b8",
+            "id": "bd27cde9.5deda",
             "type": "exec",
-            "z": "7458f1be.a330f",
-            "command": "python3 /home/pi/test_display.py",
-            "addpay": true,
+            "z": "a1a66a2f.73f348",
+            "command": "python3 /home/pi/to_display.py",
+            "addpay": "payload",
             "append": "",
             "useSpawn": "false",
             "timer": "",
             "oldrc": false,
             "name": "",
-            "x": 1310,
-            "y": 600,
-            "wires": [[], [], []]
+            "x": 1190,
+            "y": 920,
+            "wires": [
+                [],
+                [],
+                []
+            ]
         },
         {
-            "id": "318674e9.d014d4",
+            "id": "b176845e.e3f838",
             "type": "function",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Create Table for Display",
-            "func": "cats = \"\";\nvals = \"\";\n\ndata = global.get(\"display_data\");\nline_width = 18;\n\nthing = msg.thingDescription;\n\nif (thing !== undefined & msg.payload !== \"0.-2\") {\n    if (thing.properties.hasOwnProperty(\"location\")) {\n        loc = thing.properties.location;\n    }\n    else {\n        loc = \"\";\n    }\n\n    if (thing.properties.hasOwnProperty(\"water_value\")) {\n        name = \"Rain\";\n        unit = \"\";\n    }\n    else if (thing.properties.hasOwnProperty(\"temperature\")) {\n        if (loc == \"\") {\n            name = \"Temperature\";\n        }\n        else {\n            name = \"T (\" + loc + \")\";\n        }\n        unit = \"°C\";\n    }\n    else if (thing.properties.hasOwnProperty(\"humidity_value\")) {\n        if (loc == \"\") {\n            name = \"Humidity\";\n        }\n        else {\n            name = \"Hum. (\" + loc + \")\";\n        }\n        unit = \"%\";\n    }\n    \n    if (name !== undefined) {\n        data[name] = {\"val\": msg.payload, \"unit\": unit};\n        global.set(\"display_data\", data);\n    }\n}\n\nvar keys = Object.keys(data);\nfor (let s of keys) {\n    \n    val = data[s][\"val\"]\n    if (typeof val == \"boolean\")\n    {\n        if (val == true)\n        {\n            val = \"Yes\"\n        }\n        else\n        {\n            val = \"No\"\n        }\n    }\n    cats = cats + s + \":\" + \"\\n\"\n    vals = vals + val + data[s][\"unit\"] + \"\\n\"\n}\n\n// text = msg.payload.Temperature[0] + msg.payload.Temperature[1]\ntext = \"\\\"\" + cats + \"\\\" \\\"\" + vals + \"\\\"\"\nmsg = {};\nmsg.payload = text\n\nreturn msg;",
+            "func": "let cats = \"\";\nlet vals = \"\";\n\nlet data = global.get(\"display_data\");\nlet loc = \"\";\n\nif (typeof msg.loc !== \"undefined\") {\n    loc = msg.loc;\n}\n\nif (typeof msg.rain !== \"undefined\") {\n    name = \"Rain\";\n    unit = \"\";\n    value = msg.rain;\n}\nelse if (typeof msg.temperature !== \"undefined\") {\n    if (loc == \"\") {\n        name = \"Temperature\";\n    }\n    else {\n        name = \"T (\" + loc + \")\";\n    }\n    unit = \"°C\";\n    value = msg.temperature;\n}\nelse if (typeof msg.humidity !== \"undefined\") {\n    if (loc == \"\") {\n        name = \"Humidity\";\n    }\n    else {\n        name = \"Hum. (\" + loc + \")\";\n    }\n    unit = \"%\";\n    value = msg.humidity;\n}\n\nif (typeof name !== \"undefined\") {\n    data[name] = {\"val\": value, \"unit\": unit};\n    global.set(\"display_data\", data);\n}\n\nlet keys = Object.keys(data);\nfor (let s of keys) {\n    \n    val = data[s][\"val\"]\n    if (typeof val == \"boolean\")\n    {\n        if (val == true)\n        {\n            val = \"Yes\";\n        }\n        else\n        {\n            val = \"No\";\n        }\n    }\n    cats = cats + s + \":\" + \"\\n\";\n    vals = vals + val + data[s][\"unit\"] + \"\\n\";\n}\n\ntext = \"\\\"\" + cats + \"\\\" \\\"\" + vals + \"\\\"\";\nmsg = {};\nmsg.payload = text;\n\nreturn msg;",
             "outputs": 1,
             "noerr": 0,
             "initialize": "",
             "finalize": "",
-            "x": 730,
-            "y": 600,
-            "wires": [["b4bf6d02.47d64", "9b755315.c3e44"]]
+            "libs": [],
+            "x": 490,
+            "y": 920,
+            "wires": [
+                [
+                    "11ebce3c.631742"
+                ]
+            ]
         },
         {
-            "id": "b4bf6d02.47d64",
+            "id": "11ebce3c.631742",
             "type": "rbe",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "",
             "func": "rbe",
             "gap": "",
             "start": "",
             "inout": "out",
             "property": "payload",
-            "x": 910,
-            "y": 600,
-            "wires": [["19db916a.9b6797"]]
+            "x": 730,
+            "y": 920,
+            "wires": [
+                [
+                    "c2921ec4.5b77b"
+                ]
+            ]
         },
         {
-            "id": "19db916a.9b6797",
+            "id": "c2921ec4.5b77b",
             "type": "delay",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "",
             "pauseType": "rate",
             "timeout": "5",
@@ -306,56 +351,41 @@
             "randomLast": "5",
             "randomUnits": "seconds",
             "drop": false,
-            "x": 1060,
-            "y": 600,
-            "wires": [["8072513a.3566b8"]]
+            "x": 920,
+            "y": 920,
+            "wires": [
+                [
+                    "bd27cde9.5deda"
+                ]
+            ]
         },
         {
-            "id": "e63a20cd.9aa89",
-            "type": "inject",
-            "z": "7458f1be.a330f",
-            "name": "Refresh values (every 20s)",
-            "props": [
-                {
-                    "p": "payload"
-                },
-                {
-                    "p": "topic",
-                    "vt": "str"
-                }
-            ],
-            "repeat": "20",
-            "crontab": "",
-            "once": true,
-            "onceDelay": "10",
-            "topic": "",
-            "payload": "",
-            "payloadType": "str",
-            "x": 180,
-            "y": 600,
-            "wires": [["166495ca.31390a"]]
-        },
-        {
-            "id": "cf559190.b5ecf8",
+            "id": "5553230c.ffe1cc",
             "type": "wot-scripting",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Read Temperature",
             "operationType": "readProperty",
             "affordanceName": "temperature",
-            "affordanceType": "",
+            "affordanceType": "saref:temperature",
             "inputValue": "",
-            "filterMode": "affordanceName",
+            "filterMode": "@type",
             "cacheMinutes": "",
-            "outputVar": "",
+            "outputVar": "temperature",
+            "outputPayload": true,
             "outputVarType": "msg",
-            "x": 590,
-            "y": 360,
-            "wires": [["998b012e.7cc998", "166495ca.31390a"]]
+            "x": 570,
+            "y": 620,
+            "wires": [
+                [
+                    "883956a5.198d78",
+                    "e6cf5efc.c51ee"
+                ]
+            ]
         },
         {
-            "id": "43f13cda.8d5dbc",
+            "id": "476cc3a2.13fe6c",
             "type": "inject",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Refresh values (every 20s)",
             "props": [
                 {
@@ -373,14 +403,18 @@
             "topic": "",
             "payload": "thingDescriptions",
             "payloadType": "flow",
-            "x": 240,
-            "y": 320,
-            "wires": [["bca87b1a.1ba7f"]]
+            "x": 220,
+            "y": 580,
+            "wires": [
+                [
+                    "6c51b6fd.706cf8"
+                ]
+            ]
         },
         {
-            "id": "bca87b1a.1ba7f",
+            "id": "6c51b6fd.706cf8",
             "type": "split",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Turn TD map into individual messages",
             "splt": "\\n",
             "spltType": "str",
@@ -388,14 +422,18 @@
             "arraySpltType": "len",
             "stream": false,
             "addname": "id",
-            "x": 270,
-            "y": 380,
-            "wires": [["8358b61f.ffb6c8"]]
+            "x": 250,
+            "y": 640,
+            "wires": [
+                [
+                    "4d1a8acd.02b994"
+                ]
+            ]
         },
         {
-            "id": "8358b61f.ffb6c8",
+            "id": "4d1a8acd.02b994",
             "type": "change",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Rearrange message properties",
             "rules": [
                 {
@@ -423,28 +461,43 @@
             "from": "",
             "to": "",
             "reg": false,
-            "x": 290,
-            "y": 440,
-            "wires": [["cf559190.b5ecf8", "31e51b92.285d1c", "b3fc7a48.a7b1f"]]
+            "x": 270,
+            "y": 700,
+            "wires": [
+                [
+                    "5553230c.ffe1cc",
+                    "a317e905.167318",
+                    "68407703.b610f8"
+                ]
+            ]
         },
         {
-            "id": "31e51b92.285d1c",
+            "id": "a317e905.167318",
             "type": "wot-scripting",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Read Humidity",
             "operationType": "readProperty",
             "affordanceName": "humidity_value",
-            "affordanceType": "",
+            "affordanceType": "saref:Humidity",
             "inputValue": "",
-            "filterMode": "affordanceName",
-            "x": 580,
-            "y": 420,
-            "wires": [["e6ebbe15.c63b5", "166495ca.31390a"]]
+            "filterMode": "@type",
+            "cacheMinutes": "",
+            "outputVar": "humidity",
+            "outputPayload": true,
+            "outputVarType": "msg",
+            "x": 560,
+            "y": 680,
+            "wires": [
+                [
+                    "883956a5.198d78",
+                    "6a31dbb7.5e8784"
+                ]
+            ]
         },
         {
-            "id": "bcd57443.7e7568",
+            "id": "116bbfff.bbea7",
             "type": "wot-discovery",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Discover and save TDs in Context",
             "useCoap": true,
             "coapUseIPv6": true,
@@ -453,9 +506,6 @@
             "coapIPv4Address": "all",
             "useMqtt": "",
             "mqttBrokerAddress": "",
-            "useHttp": true,
-            "httpUseIPv6": true,
-            "httpUseIPv4": false,
             "timeoutRemoval": true,
             "removalTime": 15,
             "msgOrContext": "both",
@@ -464,14 +514,23 @@
             "contextVar": "",
             "contextVarType": "flow",
             "deleteExistingTDs": true,
-            "x": 220,
-            "y": 160,
-            "wires": [["3ef1f651.723622"]]
+            "coreURI": false,
+            "tdURI": true,
+            "useCoreRD": false,
+            "coreRDUseIPv6": false,
+            "coreRDUseIPv4": false,
+            "x": 200,
+            "y": 420,
+            "wires": [
+                [
+                    "e5f926af.2459a8"
+                ]
+            ]
         },
         {
-            "id": "3ef1f651.723622",
+            "id": "e5f926af.2459a8",
             "type": "change",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Get TDs from Context",
             "rules": [
                 {
@@ -487,14 +546,18 @@
             "from": "",
             "to": "",
             "reg": false,
-            "x": 480,
-            "y": 160,
-            "wires": [["77edfe1d.7794c"]]
+            "x": 460,
+            "y": 420,
+            "wires": [
+                [
+                    "25363483.5bc26c"
+                ]
+            ]
         },
         {
-            "id": "db41e6c1.6436e",
+            "id": "c360df2.3da792",
             "type": "change",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Clear Table and Display Data",
             "rules": [
                 {
@@ -517,183 +580,99 @@
             "from": "",
             "to": "",
             "reg": false,
-            "x": 820,
-            "y": 40,
-            "wires": [["9bb69194.28f7b8"]]
+            "x": 800,
+            "y": 300,
+            "wires": [
+                [
+                    "ba07006e.397fc"
+                ]
+            ]
         },
         {
-            "id": "b3fc7a48.a7b1f",
+            "id": "68407703.b610f8",
             "type": "wot-scripting",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Read Rain Value",
             "operationType": "readProperty",
             "affordanceName": "water_value",
-            "affordanceType": "",
+            "affordanceType": "saref:Water",
             "inputValue": "",
-            "filterMode": "affordanceName",
-            "x": 590,
-            "y": 480,
-            "wires": [["10ece285.b61575", "166495ca.31390a"]]
+            "filterMode": "@type",
+            "cacheMinutes": "",
+            "outputVar": "rain",
+            "outputPayload": true,
+            "outputVarType": "msg",
+            "x": 570,
+            "y": 740,
+            "wires": [
+                [
+                    "883956a5.198d78",
+                    "231bb1e8.36fb8e"
+                ]
+            ]
         },
         {
-            "id": "77edfe1d.7794c",
+            "id": "25363483.5bc26c",
             "type": "function",
-            "z": "7458f1be.a330f",
+            "z": "a1a66a2f.73f348",
             "name": "Convert map of TDs to array",
             "func": "msg.payload = Object.values(msg.payload);\nreturn msg;",
             "outputs": 1,
             "noerr": 0,
             "initialize": "",
             "finalize": "",
-            "x": 720,
-            "y": 160,
-            "wires": [["9bb69194.28f7b8"]]
+            "x": 700,
+            "y": 420,
+            "wires": [
+                [
+                    "ba07006e.397fc"
+                ]
+            ]
         },
         {
-            "id": "a0014679.e54ae",
-            "type": "inject",
-            "z": "7458f1be.a330f",
-            "name": "Toggle all lamps",
-            "props": [
-                {
-                    "p": "payload"
-                }
-            ],
-            "repeat": "",
-            "crontab": "",
-            "once": false,
-            "onceDelay": 0.1,
-            "topic": "",
-            "payload": "thingDescriptions",
-            "payloadType": "flow",
-            "x": 140,
-            "y": 220,
-            "wires": [["d8bbfba5.9ec8d8"]]
-        },
-        {
-            "id": "1e59c56a.9588f3",
+            "id": "94977bb4.2da588",
             "type": "wot-scripting",
-            "z": "7458f1be.a330f",
-            "name": "Toggle",
-            "operationType": "invokeAction",
-            "affordanceName": "effect",
+            "z": "a1a66a2f.73f348",
+            "name": "Read Location",
+            "operationType": "readProperty",
+            "affordanceName": "location",
             "affordanceType": "",
-            "inputValue": "okay",
+            "inputValue": "",
             "filterMode": "affordanceName",
-            "cacheMinutes": "1",
-            "outputVar": "",
+            "cacheMinutes": "",
+            "outputVar": "loc",
+            "outputPayload": false,
             "outputVarType": "msg",
-            "x": 930,
-            "y": 220,
-            "wires": [[]]
+            "x": 240,
+            "y": 920,
+            "wires": [
+                [
+                    "b176845e.e3f838"
+                ]
+            ]
         },
         {
-            "id": "491cf76e.4f104",
-            "type": "change",
-            "z": "7458f1be.a330f",
-            "name": "Rearrange message properties",
-            "rules": [
-                {
-                    "t": "set",
-                    "p": "topic",
-                    "pt": "msg",
-                    "to": "payload.title",
-                    "tot": "msg"
-                },
-                {
-                    "t": "move",
-                    "p": "payload",
-                    "pt": "msg",
-                    "to": "thingDescription",
-                    "tot": "msg"
-                },
-                {
-                    "t": "delete",
-                    "p": "payload",
-                    "pt": "msg"
-                }
-            ],
-            "action": "",
-            "property": "",
-            "from": "",
-            "to": "",
-            "reg": false,
-            "x": 710,
-            "y": 220,
-            "wires": [["1e59c56a.9588f3"]]
-        },
-        {
-            "id": "d8bbfba5.9ec8d8",
-            "type": "split",
-            "z": "7458f1be.a330f",
-            "name": "Turn TD map into individual messages",
-            "splt": "\\n",
-            "spltType": "str",
-            "arraySplt": 1,
-            "arraySpltType": "len",
-            "stream": false,
-            "addname": "id",
-            "x": 410,
-            "y": 220,
-            "wires": [["491cf76e.4f104"]]
-        },
-        {
-            "id": "166495ca.31390a",
-            "type": "switch",
-            "z": "7458f1be.a330f",
-            "name": "Check USE_DISPLAY variable",
-            "property": "USE_DISPLAY",
-            "propertyType": "env",
-            "rules": [
-                {
-                    "t": "true"
-                }
-            ],
-            "checkall": "true",
-            "repair": false,
-            "outputs": 1,
-            "x": 470,
-            "y": 600,
-            "wires": [["318674e9.d014d4"]]
-        },
-        {
-            "id": "9b755315.c3e44",
-            "type": "debug",
-            "z": "7458f1be.a330f",
-            "name": "",
-            "active": true,
-            "tosidebar": true,
-            "console": false,
-            "tostatus": false,
-            "complete": "false",
-            "statusVal": "",
-            "statusType": "auto",
-            "x": 940,
-            "y": 720,
-            "wires": []
-        },
-        {
-            "id": "e0b6916b.ac8aa8",
+            "id": "3aa5a87e.8fc0e",
             "type": "ui_group",
             "name": "Control-Panel",
-            "tab": "9bee792c.16b1d",
+            "tab": "c2e5a8be.4d582",
             "order": 2,
             "disp": true,
             "width": "24",
             "collapse": false
         },
         {
-            "id": "85887a12.bec588",
+            "id": "c9175c00.15155",
             "type": "ui_group",
             "name": "Monitor",
-            "tab": "9bee792c.16b1d",
+            "tab": "c2e5a8be.4d582",
             "order": 1,
             "disp": true,
             "width": "6",
             "collapse": false
         },
         {
-            "id": "9bee792c.16b1d",
+            "id": "c2e5a8be.4d582",
             "type": "ui_tab",
             "name": "Home",
             "icon": "dashboard",
