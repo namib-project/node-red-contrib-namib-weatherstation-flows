@@ -674,7 +674,7 @@
         {
             "id": "c2e5a8be.4d582",
             "type": "ui_tab",
-            "name": "Home",
+            "name": "Weatherstation",
             "icon": "dashboard",
             "disabled": false,
             "hidden": false
