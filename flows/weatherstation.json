@@ -10,7 +10,7 @@
         {
             "name": "USE_DISPLAY",
             "type": "bool",
-            "value": "true"
+            "value": "false"
         }
     ],
     "color": "#FFCC66",
