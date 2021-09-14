@@ -15,7 +15,8 @@
       "namib-weatherstation-node": "flows/weatherstation.js"
     },
     "dependencies": [
-      "red-contrib-wot-discovery"
+      "node-red-contrib-wot-discovery",
+      "node-red-node-ui-table"
     ]
   },
   "keywords": [
